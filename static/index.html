@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Market Forecast (toy models)</title>
+<link rel="stylesheet" href="style.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+</head>
+<body>
+  <main>
+    <h1>Market Forecast Sandbox</h1>
+    <p class="disclaimer">
+      <strong>This is not investment advice.</strong> These are textbook statistical
+      models (moving average, exponential smoothing, linear regression) run on
+      historical prices. None of them have real predictive edge on markets —
+      that's the point of showing the naive random-walk baseline next to them.
+      Use this to learn how forecasting/backtesting works, not to trade.
+    </p>
+
+    <section class="controls">
+      <label>Ticker
+        <input id="symbol" type="text" value="aapl" placeholder="e.g. aapl, spy, ^spx" />
+      </label>
+      <label>Model
+        <select id="model">
+          <option value="naive">Naive (random walk)</option>
+          <option value="moving_average">Moving average</option>
+          <option value="ses">Simple exponential smoothing</option>
+          <option value="holt" selected>Holt's linear trend</option>
+          <option value="linear_regression">Linear regression</option>
+        </select>
+      </label>
+      <label>Horizon (days)
+        <input id="horizon" type="number" value="10" min="1" max="60" />
+      </label>
+      <button id="run">Run forecast</button>
+    </section>
+
+    <p id="status"></p>
+    <canvas id="chart" height="120"></canvas>
+    <div id="metrics"></div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
