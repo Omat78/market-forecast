@@ -1,8 +1,9 @@
 # Market Forecast Sandbox (Rust)
 
-A small full-stack app for exploring classic time-series forecasting models
-against real historical price data — and, just as importantly, against a
-naive "tomorrow = today" baseline. It's built to make the unreliability of
+A small fullstack app for exploring classic time series forecasting models
+against real historical price data and just as importantly against a
+naive "tomorrow = today" baseline. 
+It's built to make the unreliability of
 market forecasting visible, not to hide it.
 
 **Stack:** Rust backend (Axum) + plain HTML/JS frontend (Chart.js via CDN).
@@ -12,17 +13,11 @@ No build tooling needed beyond Cargo.
 
 1. You pick a ticker, a model, and a forecast horizon.
 2. The backend pulls free daily closing prices for that ticker from stooq.com.
-3. It runs a walk-forward backtest: for each of the last N days, predict that
-   day using only the data before it, then compare prediction vs. reality.
-4. It shows you the forecast, a 95% band that widens with `sqrt(horizon)`,
-   and — critically — the same backtest run with the naive random-walk model,
-   so you can see whether the fancier model actually earned its complexity.
+3. It runs a walk-forward backtest: for each of the last N days, predict that day using only the data before it, then compare prediction vs. reality.
+4. It shows you the forecast, a 95% band that widens with `sqrt(horizon)` and critically the same backtest run with the naive random walk model, so you can see whether the fancier model actually earned its complexity.
 
 Models included: naive (random walk), moving average, simple exponential
-smoothing, Holt's linear trend, and OLS linear regression. These are standard
-textbook methods, not anything with genuine market edge — real quantitative
-trading uses far more data (order flow, fundamentals, alternative data) and
-still struggles to consistently beat naive baselines net of costs.
+smoothing, Holt's linear trend, and OLS linear regression. These are standard textbook methods, not anything with genuine market edge real quantitative trading uses far more data (order flow, fundamentals, alternative data) and still struggles to consistently beat naive baselines net of costs.
 
 ## Running it
 
@@ -52,7 +47,7 @@ market-forecast/
 ## Extending it
 
 - Swap `data.rs` to read from a CSV upload instead of stooq, if you want to
-  work with data that isn't publicly available.
+work with data that isn't publicly available.
 - Add ARIMA/GARCH via a crate like `augurs` or shell out to a Python
   process if you need heavier statistical machinery.
 - Add a second "model" that's literally coin-flip random, to further drive
