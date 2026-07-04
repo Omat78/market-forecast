@@ -57,7 +57,7 @@ work with data that isn't publicly available.
 ## The honest caveat
 
 Nothing here should inform real trading decisions. Backtested accuracy on
-past prices says very little about future accuracy — markets are close to
+past prices says very little about future accuracy, markets are close to
 efficient, meaning most public information is already priced in, and the
 methods here don't use anything markets don't already know. Treat this as a
 learning tool for forecasting mechanics and backtesting discipline, not a
